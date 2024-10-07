@@ -1,4 +1,4 @@
-﻿using FoodDelivery.foodDeliveryDBDataSet1TableAdapters;
+﻿using FoodDelivery.foodDeliveryDBDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,17 +31,15 @@ namespace FoodDelivery
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            // Получаем все данные пользователей
             var userTable = users.GetData();
 
             bool userFound = false;
 
-            // Ищем пользователя и проверяем пароль
             foreach (var row in userTable)
             {
-                // Предположим, что в строке есть поля Username и Password
-                string storedUsername = row.username; // замените на реальное имя поля
-                string storedPassword = row.password; // замените на реальное имя поля
+      
+                string storedUsername = row.username; 
+                string storedPassword = row.password; 
 
                 if (storedUsername == username)
                 {
@@ -49,8 +47,8 @@ namespace FoodDelivery
 
                     if (storedPassword == password)
                     {
-                        MessageBox.Show("НАШЕЕЕЛ!!!");
-                        return; // Выход из метода при успешном входе
+                        
+                        CheckRole(row, row.user_id);
                     }
                     else
                     {
@@ -63,6 +61,25 @@ namespace FoodDelivery
             if (!userFound)
             {
                 MessageBox.Show("НЕ НАШЕЕЕЛ ЮЗЕРА!!!");
+            }
+
+        }
+        private void CheckRole(foodDeliveryDBDataSet.UsersRow row, int userID)
+        {
+            if (row.role_id == 1)
+            {
+                MessageBox.Show("Курьер");
+            }
+            if(row.role_id == 2)
+            { 
+                MessageBox.Show("Пользователь");
+                UserWindow userWindow = new UserWindow(userID);
+                userWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Admin");
             }
 
         }

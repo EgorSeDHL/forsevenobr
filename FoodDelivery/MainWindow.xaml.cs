@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using FoodDelivery.foodDeliveryDBDataSet1TableAdapters;
+using FoodDelivery.foodDeliveryDBDataSetTableAdapters;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
@@ -49,10 +49,10 @@ namespace FoodDelivery
 
 
 
-            // Валидация данных
             if (VaildationData(username, password, email, phone, addres))
             {
-                users.InsertQuery(username, password, email, phone, addres);
+                users.InsertQuery(username, password, email, phone, addres, 2);
+
             }
 
         }
