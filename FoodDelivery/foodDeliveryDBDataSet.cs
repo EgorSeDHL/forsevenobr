@@ -1,15 +1,14 @@
 ﻿namespace FoodDelivery
 {
-
-
-    partial class foodDeliveryDBDataSet
-    {
-    }
 }
+namespace FoodDelivery
+{
 
-namespace FoodDelivery.foodDeliveryDBDataSetTableAdapters {
-    
-    
-    public partial class UsersTableAdapter {
+
+    partial class FoodDeliveryDBDataSet
+    {
+        partial class Order_ItemsDataTable
+        {
+        }
     }
 }

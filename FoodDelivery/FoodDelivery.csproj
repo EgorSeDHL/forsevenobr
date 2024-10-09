@@ -55,18 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="foodDeliveryDBDataSet.cs">
-      <DependentUpon>foodDeliveryDBDataSet.xsd</DependentUpon>
+    <Compile Include="amountItemWibdow.xaml.cs">
+      <DependentUpon>amountItemWibdow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="foodDeliveryDBDataSet.Designer.cs">
+    <Compile Include="CountClass.cs" />
+    <Compile Include="FoodDeliveryDBDataSet.cs">
+      <DependentUpon>FoodDeliveryDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FoodDeliveryDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>foodDeliveryDBDataSet.xsd</DependentUpon>
+      <DependentUpon>FoodDeliveryDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs" />
+    <Compile Include="MenuItem.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -76,6 +80,10 @@
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="amountItemWibdow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,16 +123,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="foodDeliveryDBDataSet.xsc">
-      <DependentUpon>foodDeliveryDBDataSet.xsd</DependentUpon>
+    <None Include="FoodDeliveryDBDataSet.xsc">
+      <DependentUpon>FoodDeliveryDBDataSet.xsd</DependentUpon>
     </None>
-    <None Include="foodDeliveryDBDataSet.xsd">
+    <None Include="FoodDeliveryDBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>foodDeliveryDBDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>FoodDeliveryDBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="foodDeliveryDBDataSet.xss">
-      <DependentUpon>foodDeliveryDBDataSet.xsd</DependentUpon>
+    <None Include="FoodDeliveryDBDataSet.xss">
+      <DependentUpon>FoodDeliveryDBDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

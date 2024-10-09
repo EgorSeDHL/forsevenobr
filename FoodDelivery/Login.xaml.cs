@@ -1,17 +1,6 @@
-﻿using FoodDelivery.foodDeliveryDBDataSetTableAdapters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FoodDelivery
 {
@@ -20,7 +9,7 @@ namespace FoodDelivery
     /// </summary>
     public partial class Login : Window
     {
-        UsersTableAdapter users = new UsersTableAdapter(); 
+        UsersTableAdapter users = new UsersTableAdapter();
         public Login()
         {
             InitializeComponent();
@@ -34,44 +23,45 @@ namespace FoodDelivery
             var userTable = users.GetData();
 
             bool userFound = false;
+            UserWindow userWindow = new UserWindow(1);
+            userWindow.Show();
+            //foreach (var row in userTable)
+            //{
 
-            foreach (var row in userTable)
-            {
-      
-                string storedUsername = row.username; 
-                string storedPassword = row.password; 
+            //    string storedUsername = row.username;
+            //    string storedPassword = row.password;
 
-                if (storedUsername == username)
-                {
-                    userFound = true;
+            //    if (storedUsername == username)
+            //    {
+            //        userFound = true;
 
-                    if (storedPassword == password)
-                    {
-                        
-                        CheckRole(row, row.user_id);
-                    }
-                    else
-                    {
-                        MessageBox.Show("НЕ ВЕРНЫЙ ПАРОЛЬ!!!");
-                        return;
-                    }
-                }
-            }
+            //        if (storedPassword == password)
+            //        {
 
-            if (!userFound)
-            {
-                MessageBox.Show("НЕ НАШЕЕЕЛ ЮЗЕРА!!!");
-            }
+            //            CheckRole(row, row.user_id);
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("НЕ ВЕРНЫЙ ПАРОЛЬ!!!");
+            //            return;
+            //        }
+            //    }
+            //}
+
+            //if (!userFound)
+            //{
+            //    MessageBox.Show("НЕ НАШЕЕЕЛ ЮЗЕРА!!!");
+            //}
 
         }
-        private void CheckRole(foodDeliveryDBDataSet.UsersRow row, int userID)
+        private void CheckRole(FoodDeliveryDBDataSet.UsersRow row, int userID)
         {
             if (row.role_id == 1)
             {
                 MessageBox.Show("Курьер");
             }
-            if(row.role_id == 2)
-            { 
+            if (row.role_id == 2)
+            {
                 MessageBox.Show("Пользователь");
                 UserWindow userWindow = new UserWindow(userID);
                 userWindow.Show();
