@@ -31,30 +31,37 @@
             <ComboBox x:Name="RestaurantComboBox" Height="30" VerticalAlignment="Top" SelectionChanged="RestaurantComboBox_SelectionChanged" HorizontalAlignment="Stretch"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0">
             <!-- Выбор продуктов -->
-            <TextBlock Text="Выберите продукты" FontSize="16" Margin="0,0,0,10"/>
+            <TextBlock Text="Выберите продукты" FontSize="16" Margin="0"/>
             <ListBox x:Name="ProductListBox" Height="100" SelectionMode="Multiple" HorizontalAlignment="Stretch" SelectionChanged="ProductListBox_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
             <!-- Адрес доставки -->
-            <TextBlock Text="Введите адрес доставки" FontSize="16" Margin="0,20,0,10"/>
+            <TextBlock Text="Введите адрес доставки" FontSize="16" Margin="0,20,0,0"/>
             <TextBox x:Name="AddressTextBox" Height="30" HorizontalAlignment="Stretch"/>
 
             <!-- Способ оплаты -->
-            <TextBlock Text="Выберите способ оплаты" FontSize="16" Margin="0,20,0,10"/>
-            <ComboBox x:Name="PaymentMethodComboBox" Height="30" HorizontalAlignment="Stretch">
-                <ComboBoxItem Content="Кредитная карта"/>
+            <TextBlock Text="Выберите способ оплаты" FontSize="16" Margin="0,20,0,0"/>
+            <ComboBox x:Name="PaymentMethodComboBox" Height="30" HorizontalAlignment="Stretch" SelectionChanged="PaymentMethodComboBox_SelectionChanged">
+                <ComboBoxItem Content="Карта" />
                 <ComboBoxItem Content="Наличные"/>
-                <ComboBoxItem Content="Apple Pay"/>
             </ComboBox>
         </StackPanel>
 
         <!-- Боковая колонка, можно использовать для отображения общей суммы, отзывов или прочей информации -->
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
             <TextBlock Text="Дополнительная информация" FontSize="16" Margin="0,0,0,10"/>
-            <ListBox x:Name="additionalInformationTBlock" />
-        </StackPanel>
+            <ListBox x:Name="additionalInformationTBlock"  SelectionChanged="additionalInformationTBlock_SelectionChanged" >
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+            <TextBlock Text="Общая сумма" x:Name="totalSummTB" FontSize="16" Margin="0,0,0,10"/>
 
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="1" Content="Написать Отзыв" Margin="10" Height="40" VerticalAlignment="Bottom" />
         <!-- Кнопка подтверждения заказа -->
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Подтвердить заказ" Height="40"
                 HorizontalAlignment="Stretch" Margin="10"
