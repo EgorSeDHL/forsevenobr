@@ -97,7 +97,7 @@ namespace FoodDelivery
         {
             orders.InsertQuery(user_ID, null, DateTime.Now, totalPrice, "Pending", AddressTextBox.Text);
             var ordersGetData = orders.GetData();
-            var lastOrderId = ordersGetData.Last().order_id;
+            var lastOrderId = ordersGetData.Last().order_id;  
             CountClass countClass = new CountClass();
             Доработать 
             //foreach (var item in itemsIDs)
