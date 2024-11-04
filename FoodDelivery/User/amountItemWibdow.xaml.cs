@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FoodDelivery
 {
@@ -25,7 +16,32 @@ namespace FoodDelivery
         {
             InitializeComponent();
         }
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Проверяем, является ли вводимое значение числом
+            if (!int.TryParse(e.Text, out int input))
+            {
+                e.Handled = true; // Блокируем ввод, если это не число
+                return;
+            }
 
+            // Получаем текущее значение и добавляем новый ввод
+            var textBox = sender as TextBox;
+            string newText = textBox.Text.Insert(textBox.SelectionStart, e.Text);
+
+            // Проверяем, что введенное значение в пределах диапазона
+            if (int.TryParse(newText, out int newValue))
+            {
+                if (newValue < 1 || newValue > 10)
+                {
+                    e.Handled = true; // Блокируем ввод, если выходит за пределы
+                }
+            }
+            else
+            {
+                e.Handled = true; // Блокируем ввод, если результат не число
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Устанавливаем количество и закрываем окно

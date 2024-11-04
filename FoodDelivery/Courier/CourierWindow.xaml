@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="CourierWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox Name="ItemsListBox" FontSize="24" SelectionChanged="ItemsListBox_SelectionChanged" 
+                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        </ListBox>
     </Grid>
 </Window>

@@ -55,8 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Courier\CourierDetailWindow.xaml.cs">
+      <DependentUpon>CourierDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Courier\CourierPendingOrderWindow.xaml.cs">
+      <DependentUpon>CourierPendingOrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Courier\CourierWindow.xaml.cs">
       <DependentUpon>CourierWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs" />
+    <Compile Include="User\addReviewWindow.xaml.cs">
+      <DependentUpon>addReviewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="User\amountItemWibdow.xaml.cs">
       <DependentUpon>amountItemWibdow.xaml</DependentUpon>
@@ -83,7 +93,19 @@
     <Compile Include="User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Courier\CourierDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Courier\CourierPendingOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Courier\CourierWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User\addReviewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

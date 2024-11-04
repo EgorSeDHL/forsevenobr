@@ -1,4 +1,5 @@
 ﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
+using FoodDelivery.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace FoodDelivery
         RestaurantsTableAdapter restaurants = new RestaurantsTableAdapter();
         ReviewsTableAdapter reviews = new ReviewsTableAdapter();
         public int user_ID;
+        public int restaurant_ID;
         public decimal totalPrice;
         int selectedRestaurantId;
         List<int> itemsIDs = new List<int>();
@@ -29,6 +31,8 @@ namespace FoodDelivery
         public int currentSelectedRestaurantId;
         List<OrderedItem> orderedItems = new List<OrderedItem>();
         String paymentMethod = "Pending";
+        List<MenuItem> menuRestaurantsList = new List<MenuItem>();
+
         public UserWindow(int userId)
         {
             InitializeComponent();
@@ -50,6 +54,7 @@ namespace FoodDelivery
 
             foreach (var item in restaurantsObject)
             {
+                restaurant_ID = item.restaurant_id;
                 restaurantsList.Add(new Restaurant { Id = item.restaurant_id, Name = item.name });
             }
             RestaurantComboBox.ItemsSource = restaurantsList;
@@ -58,7 +63,7 @@ namespace FoodDelivery
 
         private void RestaurantComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             // Получаем выбранный ресторан
             Restaurant selectedRestaurant = RestaurantComboBox.SelectedItem as Restaurant;
             currentSelectedRestaurantId = selectedRestaurant.Id;
@@ -81,7 +86,6 @@ namespace FoodDelivery
 
 
                 var menuObject = menu.GetData();
-                List<MenuItem> menuRestaurantsList = new List<MenuItem>();
                 foreach (var item in menuObject)
                 {
                     if (item.restaurant_id == selectedRestaurantId)
@@ -129,38 +133,55 @@ namespace FoodDelivery
         }
 
 
+        // Добавляем список для корзины
+        List<MenuItem> basketItemsList = new List<MenuItem>();
+
         private void ProductListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            totalPrice = 0;
-            var selectedItems = ProductListBox.SelectedItems;
-
+            var selectedItems = ProductListBox.SelectedItems.Cast<MenuItem>().ToList(); // Получаем выбранные элементы
             itemsIDs.Clear();
-            
 
-            foreach (var item in selectedItems)
+            foreach (var selectedItem in selectedItems)
             {
-                var selectedItem = item as MenuItem;
-
                 if (selectedItem != null)
                 {
                     amountItemWibdow amountItemWibdow = new amountItemWibdow();
                     if (amountItemWibdow.ShowDialog() == true)
                     {
-                        int selectedQuantity = amountItemWibdow.SelectedQuantity; // Получаем выбранное количество из окна
+                        int selectedQuantity = amountItemWibdow.SelectedQuantity; // Получаем количество
 
-                        // Добавляем товар с количеством в список
+                        // Добавляем товар с количеством в список заказов
                         orderedItems.Add(new OrderedItem(selectedItem.ItemId, selectedQuantity));
 
-                        // Добавляем в общую стоимость
+                        // Увеличиваем общую стоимость
                         totalPrice += selectedItem.Price * selectedQuantity;
+
+                        // Перемещаем элемент в корзину
+                        basketItemsList.Add(selectedItem);
+
+                        // Удаляем элемент из списка продуктов
+                        (ProductListBox.ItemsSource as List<MenuItem>).Remove(selectedItem);
                     }
                 }
             }
+
+            // Обновляем источники данных для ListBox
+            ProductListBox.ItemsSource = null;
+            ProductListBox.ItemsSource = menuRestaurantsList; // обновляем список продуктов
+            ProductListBox.DisplayMemberPath = "Name";
+
+            BasketListBox.ItemsSource = null;
+            BasketListBox.ItemsSource = basketItemsList; // обновляем список корзины
+            BasketListBox.DisplayMemberPath = "Name";
+
+            // Обновляем отображение общей суммы
             totalSummTB.Text = totalPrice.ToString() + " Рублей";
-            // Показываем список выбранных товаров с количеством
+
+            // Отображаем список товаров в корзине для отладки
             string ids = string.Join(", ", orderedItems.Select(o => $"ItemId: {o.ItemId}, Quantity: {o.Quantity}"));
             MessageBox.Show(ids);
         }
+
 
 
         private void additionalInformationTBlock_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -178,6 +199,12 @@ namespace FoodDelivery
             {
                 paymentMethod = "Cash";
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            addReviewWindow addReviewWindow = new addReviewWindow(restaurant_ID, user_ID);
+            addReviewWindow.ShowDialog();
         }
     }
 }
