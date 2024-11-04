@@ -1,0 +1,31 @@
+﻿<Window x:Class="FoodDelivery.User.addReviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodDelivery.User"
+        mc:Ignorable="d"
+        Title="addReviewWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+
+            
+        </Grid.RowDefinitions>
+        <TextBlock Text="Напишите отзыв  о ресторане " Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
+        <TextBox x:Name="ReviewTB" Grid.Row="1" FontSize="24"></TextBox>
+        <TextBlock Text="Gjcnf " Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"></TextBlock>
+
+        <UniformGrid Rows="1" Columns="5" Margin="10" Grid.Row="2" HorizontalAlignment="Stretch" Name="RatingPanel">
+            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="1" />
+            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="2" />
+            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="3" />
+            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="4" />
+            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="5" />
+        </UniformGrid>
+        <Button Content="Написать отзыв" Grid.Row="3" FontSize="24" Margin="10" Click="Button_Click"></Button>
+    </Grid>
+</Window>

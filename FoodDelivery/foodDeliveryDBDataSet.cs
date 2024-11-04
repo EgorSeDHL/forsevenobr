@@ -13,9 +13,13 @@ namespace FoodDelivery
     }
 }
 
-namespace FoodDelivery.FoodDeliveryDBDataSetTableAdapters {
-    
-    
-    public partial class Order_ItemsTableAdapter {
+namespace FoodDelivery.FoodDeliveryDBDataSetTableAdapters
+{
+    partial class OrdersTableAdapter
+    {
+    }
+
+    public partial class Order_ItemsTableAdapter
+    {
     }
 }

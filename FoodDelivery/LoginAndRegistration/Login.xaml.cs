@@ -1,4 +1,5 @@
-﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
+﻿using FoodDelivery.Courier;
+using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,8 +24,8 @@ namespace FoodDelivery
             var userTable = users.GetData();
 
             bool userFound = false;
-         /*   UserWindow userWindow = new UserWindow(1);
-            userWindow.Show();*/
+            /*   UserWindow userWindow = new UserWindow(1);
+               userWindow.Show();*/
             foreach (var row in userTable)
             {
 
@@ -58,18 +59,21 @@ namespace FoodDelivery
         {
             if (row.role_id == 1)
             {
-                MessageBox.Show("Курьер");
+                MessageBox.Show("Admin");
+
             }
             if (row.role_id == 2)
             {
-                MessageBox.Show("Пользователь");
                 UserWindow userWindow = new UserWindow(userID);
                 userWindow.Show();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Admin");
+                MessageBox.Show("Курьер");
+                CourierWindow courierWindow = new CourierWindow(userID);
+                courierWindow.Show();
+                this.Close();
             }
 
         }
