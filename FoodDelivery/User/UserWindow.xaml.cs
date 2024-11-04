@@ -97,6 +97,7 @@ namespace FoodDelivery
 
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 // Вставляем заказ и проверяем, что запрос выполнен успешно
