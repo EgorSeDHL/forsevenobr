@@ -27,10 +27,12 @@ namespace FoodDelivery
         List<int> itemsIDs = new List<int>();
         public int lastSelectedRestaurantId;
         public int currentSelectedRestaurantId;
+        List<OrderedItem> orderedItems = new List<OrderedItem>();
+        String paymentMethod = "Pending";
         public UserWindow(int userId)
         {
             InitializeComponent();
-
+            PaymentMethodComboBox.SelectedIndex = 0;
             var restaurantsObject = restaurants.GetData();
             List<Restaurant> restaurantsList = new List<Restaurant>();
             user_ID = userId;
@@ -92,29 +94,48 @@ namespace FoodDelivery
 
             }
         }
-        
+
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
-            orders.InsertQuery(user_ID, null, DateTime.Now, totalPrice, "Pending", AddressTextBox.Text);
-            var ordersGetData = orders.GetData();
-            var lastOrderId = ordersGetData.Last().order_id;  
-            CountClass countClass = new CountClass();
-            Доработать 
-            //foreach (var item in itemsIDs)
-            //{
-            //    order_items.InsertQuery(lastOrderId, item, countClass.quantity);
+            try
+            {
+                // Вставляем заказ и проверяем, что запрос выполнен успешно
+                orders.InsertQuery(user_ID, null, DateTime.Now, totalPrice, "Pending", AddressTextBox.Text);
+                var ordersGetData = orders.GetData();
+                var lastOrderId = ordersGetData.Last().order_id;
+                payments.Insert(lastOrderId, DateTime.Now, totalPrice, paymentMethod);
+                // Проверка списка товаров перед вставкой
+                if (orderedItems.Count == 0)
+                {
+                    MessageBox.Show("Список товаров пуст.");
+                    return;
+                }
 
-            //}
+                foreach (var orderedItem in orderedItems)
+                {
+                    // Вставляем каждый товар с количеством
+                    order_items.InsertQuery(lastOrderId, orderedItem.ItemId, orderedItem.Quantity);
+
+                    // Сообщение для отладки
+                }
+
+                MessageBox.Show("Заказ успешно добавлен!");
+            }
+            catch (Exception ex)
+            {
+                // Ловим исключение и выводим сообщение об ошибке
+                MessageBox.Show($"Ошибка при добавлении заказа: {ex.Message}");
+            }
         }
+
 
         private void ProductListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             totalPrice = 0;
             var selectedItems = ProductListBox.SelectedItems;
-            amountItemWibdow amountItemWibdow = new amountItemWibdow();
-            amountItemWibdow.Show();
+
             itemsIDs.Clear();
+            
 
             foreach (var item in selectedItems)
             {
@@ -122,17 +143,41 @@ namespace FoodDelivery
 
                 if (selectedItem != null)
                 {
-                    itemsIDs.Add(selectedItem.ItemId);
+                    amountItemWibdow amountItemWibdow = new amountItemWibdow();
+                    if (amountItemWibdow.ShowDialog() == true)
+                    {
+                        int selectedQuantity = amountItemWibdow.SelectedQuantity; // Получаем выбранное количество из окна
 
-                    totalPrice += selectedItem.Price;
+                        // Добавляем товар с количеством в список
+                        orderedItems.Add(new OrderedItem(selectedItem.ItemId, selectedQuantity));
+
+                        // Добавляем в общую стоимость
+                        totalPrice += selectedItem.Price * selectedQuantity;
+                    }
                 }
             }
-            string ids = "";
-            foreach (int i in itemsIDs)
-            {
-                ids += i;
-            }
+            totalSummTB.Text = totalPrice.ToString() + " Рублей";
+            // Показываем список выбранных товаров с количеством
+            string ids = string.Join(", ", orderedItems.Select(o => $"ItemId: {o.ItemId}, Quantity: {o.Quantity}"));
             MessageBox.Show(ids);
+        }
+
+
+        private void additionalInformationTBlock_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void PaymentMethodComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (PaymentMethodComboBox.SelectedIndex == 0)
+            {
+                paymentMethod = "Card";
+            }
+            else
+            {
+                paymentMethod = "Cash";
+            }
         }
     }
 }

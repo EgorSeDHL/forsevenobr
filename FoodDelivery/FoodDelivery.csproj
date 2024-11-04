@@ -55,7 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="amountItemWibdow.xaml.cs">
+    <Compile Include="Courier\CourierWindow.xaml.cs">
+      <DependentUpon>CourierWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User\amountItemWibdow.xaml.cs">
       <DependentUpon>amountItemWibdow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CountClass.cs" />
@@ -67,7 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FoodDeliveryDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="LoginAndRegistration\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuItem.cs" />
@@ -77,18 +80,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Restaurant.cs" />
-    <Compile Include="UserWindow.xaml.cs">
+    <Compile Include="User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="amountItemWibdow.xaml">
+    <Page Include="Courier\CourierWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="User\amountItemWibdow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="LoginAndRegistration\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginAndRegistration\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,11 +103,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="LoginAndRegistration\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserWindow.xaml">
+    <Page Include="User\UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

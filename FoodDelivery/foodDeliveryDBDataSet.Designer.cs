@@ -5245,8 +5245,8 @@ SELECT order_item_id, order_id, item_id, quantity FROM Order_Items WHERE (order_
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO Order_Items\r\n                  (order_id, item_id, quantity)\r\nVALUES " +
-                "(@order_id,@item_id,@quantity); \r\n";
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Order_Items] ([order_id], [item_id], [quantity]) VALUES (@orde" +
+                "r_id, @item_id, @quantity);\r\n";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@order_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "order_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "item_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

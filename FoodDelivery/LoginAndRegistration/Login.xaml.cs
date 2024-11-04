@@ -23,35 +23,35 @@ namespace FoodDelivery
             var userTable = users.GetData();
 
             bool userFound = false;
-            UserWindow userWindow = new UserWindow(1);
-            userWindow.Show();
-            //foreach (var row in userTable)
-            //{
+         /*   UserWindow userWindow = new UserWindow(1);
+            userWindow.Show();*/
+            foreach (var row in userTable)
+            {
 
-            //    string storedUsername = row.username;
-            //    string storedPassword = row.password;
+                string storedUsername = row.username;
+                string storedPassword = row.password;
 
-            //    if (storedUsername == username)
-            //    {
-            //        userFound = true;
+                if (storedUsername == username)
+                {
+                    userFound = true;
 
-            //        if (storedPassword == password)
-            //        {
+                    if (storedPassword == password)
+                    {
 
-            //            CheckRole(row, row.user_id);
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("НЕ ВЕРНЫЙ ПАРОЛЬ!!!");
-            //            return;
-            //        }
-            //    }
-            //}
+                        CheckRole(row, row.user_id);
+                    }
+                    else
+                    {
+                        MessageBox.Show("НЕ ВЕРНЫЙ ПАРОЛЬ!!!");
+                        return;
+                    }
+                }
+            }
 
-            //if (!userFound)
-            //{
-            //    MessageBox.Show("НЕ НАШЕЕЕЛ ЮЗЕРА!!!");
-            //}
+            if (!userFound)
+            {
+                MessageBox.Show("НЕ НАШЕЕЕЛ ЮЗЕРА!!!");
+            }
 
         }
         private void CheckRole(FoodDeliveryDBDataSet.UsersRow row, int userID)

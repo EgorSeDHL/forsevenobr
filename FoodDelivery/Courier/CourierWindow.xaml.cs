@@ -12,22 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FoodDelivery
+namespace FoodDelivery.Courier
 {
     /// <summary>
-    /// Логика взаимодействия для amountItemWibdow.xaml
+    /// Логика взаимодействия для CourierWindow.xaml
     /// </summary>
-    public partial class amountItemWibdow : Window
+    public partial class CourierWindow : Window
     {
-        public amountItemWibdow()
+        public CourierWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var count = new CountClass();
-            count.quantity = Convert.ToInt16(countBX.Text);
         }
     }
 }
