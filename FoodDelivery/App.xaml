@@ -4,6 +4,83 @@
              xmlns:local="clr-namespace:FoodDelivery"
              StartupUri="LoginAndRegistration\MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+       
+        <Style TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Background" Value="#001f54"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="BorderBrush" Value="#001f54"/>
+
+        </Style>
+        
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#001f54"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Style.Triggers>
+                <!-- Цвет выделения для выбранного элемента -->
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#001f54"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <!-- Цвет при наведении курсора на элемент -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Background" Value="#034078"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter  Property="Background" Value="#0467a0"/>
+                                <!-- Более светлый оттенок фона -->
+                                <Setter Property="BorderBrush" Value="WhiteSmoke"/>
+                                <!-- Цвет границы при наведении -->
+                            </Trigger>
+
+                            <!-- Триггер на состояние нажатия -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter  Property="Background" Value="#034089"/>
+                                <!-- Более темный оттенок фона -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Background" Value="#001f54"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+        
     </Application.Resources>
 </Application>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="FoodDelivery.Admin.AdminAddRestaurant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodDelivery.Admin"
+        mc:Ignorable="d"
+        Title="AdminAddRestaurant" Height="450" Width="800">
+    <Grid Background="#0a1128">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,108" Grid.RowSpan="2">
+            <TextBlock Text="Название ресторана" HorizontalAlignment="Center"/>
+            <TextBox x:Name="restaurantNameTBX" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Grid.Row="0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock Text="Телефон ресторана" HorizontalAlignment="Center"/>
+            <TextBox x:Name="phoneTBX" HorizontalAlignment="Stretch" Margin="10" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,108,0,108" Grid.RowSpan="3">
+            <TextBlock Text="Адрес ресторана" HorizontalAlignment="Center"/>
+            <TextBox x:Name="addressTBX" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2"/>
+        </StackPanel>
+        <Button Grid.Row="3" Margin="10,10,10,10" Content="Добавить ресторан" Click="Button_Click" Grid.Column="0"/>
+    </Grid>
+</Window>

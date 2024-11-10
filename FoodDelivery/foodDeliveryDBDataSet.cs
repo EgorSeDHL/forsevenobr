@@ -15,6 +15,10 @@ namespace FoodDelivery
 
 namespace FoodDelivery.FoodDeliveryDBDataSetTableAdapters
 {
+    partial class RestaurantsTableAdapter
+    {
+    }
+
     partial class OrdersTableAdapter
     {
     }

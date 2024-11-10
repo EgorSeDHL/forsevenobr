@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodDelivery"
         mc:Ignorable="d"
-        Title="Регистрация" Height="300" Width="300">
-    <Grid>
+        Title="Регистрация" Height="420" Width="320">
+    <Grid Background="#0a1128">
         <StackPanel>
             <TextBlock Text="Имя пользователя" HorizontalAlignment="Center"/>
             <TextBox Name="UsernameTextBox"  />
@@ -18,8 +18,8 @@
             <TextBox Name="PhoneTextBox"/>
             <TextBlock Text="Адрес" HorizontalAlignment="Center"/>
             <TextBox  Name="AddresTextBox"/>
-            <Button Content="Зарегистрироваться" Click="RegisterButton_Click"/>
-            <Button x:Name="LogiButton" Content="Уже есть аккаунт? Войдите!" Click="LogiButton_Click"/>
+            <Button Content="Зарегистрироваться" Margin="0,5,0,0" Click="RegisterButton_Click"/>
+            <Button x:Name="LogiButton" Margin="0,5" Content="Уже есть аккаунт? Войдите!" Click="LogiButton_Click"/>
             
         </StackPanel>
 

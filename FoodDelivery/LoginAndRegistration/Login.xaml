@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:FoodDelivery"
         mc:Ignorable="d"
         Title="Авторизация" Height="200" Width="300">
-    <StackPanel>
+    <StackPanel Background="#0a1128">
         <TextBlock Text="Имя пользователя"  HorizontalAlignment="Center"/>
         <TextBox Name="UsernameTextBox" />
         <TextBlock Text="Пароль"  HorizontalAlignment="Center"/>
         <PasswordBox Name="PasswordBox" />
-        <Button x:Name="EnterBtn" Content="Войти" Click="EnterBtn_Click" />
+        <Button x:Name="EnterBtn" Content="Войти" Click="EnterBtn_Click" Margin="0,5" />
     </StackPanel>
 </Window>

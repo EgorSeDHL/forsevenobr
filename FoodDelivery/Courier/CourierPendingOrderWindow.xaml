@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FoodDelivery.Courier"
         mc:Ignorable="d"
         Title="CourierPendingOrderWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#0a1128">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -19,7 +19,7 @@
             <TextBlock x:Name="order_numberTB"   Text="Вы взяи заказ номер: " FontSize="24" HorizontalAlignment="Left" />
             <TextBlock x:Name="addressTB" FontSize="24" Text="Адрес: " Grid.Row="0"/>
         </StackPanel>
-        <Button x:Name="CancelBtn" Content="Отказаться" Grid.Row="1" Margin="10" Click="CancelBtn_Click"/>
-        <Button x:Name="GiveOrderBtn" Content="Отдать заказ" Grid.Row="1" Grid.Column="1" Margin="10" Click="GiveOrderBtn_Click"/>
+        <Button x:Name="CancelBtn" Content="Отказаться" FontSize="24" Grid.Row="1" Margin="10" Click="CancelBtn_Click"/>
+        <Button x:Name="GiveOrderBtn" Content="Отдать заказ" FontSize="24" Grid.Row="1" Grid.Column="1" Margin="10" Click="GiveOrderBtn_Click"/>
     </Grid>
 </Window>

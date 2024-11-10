@@ -1,4 +1,5 @@
-﻿using FoodDelivery.Courier;
+﻿using FoodDelivery.Admin;
+using FoodDelivery.Courier;
 using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
 using System.Windows;
 using System.Windows.Controls;
@@ -60,9 +61,11 @@ namespace FoodDelivery
             if (row.role_id == 1)
             {
                 MessageBox.Show("Admin");
+                AdminWindow admin = new AdminWindow();
+                admin.Show();
 
             }
-            if (row.role_id == 2)
+            else if (row.role_id == 2)
             {
                 UserWindow userWindow = new UserWindow(userID);
                 userWindow.Show();

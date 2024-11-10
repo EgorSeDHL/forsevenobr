@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FoodDelivery.Courier"
         mc:Ignorable="d"
         Title="CourierDetailWindow" Height="450" Width="800">
-    <Grid Margin="10">
+    <Grid Margin="10" Background="#0a1128">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -22,7 +22,7 @@
             <TextBlock x:Name="userTB" Text="user" FontSize="34"></TextBlock>
             <TextBlock x:Name="addressTB"  Text="address" FontSize="34"></TextBlock>
         </StackPanel>
-        <ListBox x:Name="productsLB" Grid.Row="2" FontSize="22" Grid.ColumnSpan="2"></ListBox>
+        <ListBox Background="#034078" Margin="10" x:Name="productsLB" Grid.Row="2" FontSize="22" Grid.ColumnSpan="2"></ListBox>
         <Button x:Name="backBtn" Content="Назад" Grid.Row="3" FontSize="34" Margin="5" Grid.Column="0" Click="backBtn_Click"/>
         <Button x:Name="takeOrderBtn" Content="Взять заказ" Grid.Row="3" FontSize="34" Margin="5" Grid.Column="1" Click="takeOrderBtn_Click"/>
     </Grid>

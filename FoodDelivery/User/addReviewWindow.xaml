@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FoodDelivery.User"
         mc:Ignorable="d"
         Title="addReviewWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#0a1128">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>

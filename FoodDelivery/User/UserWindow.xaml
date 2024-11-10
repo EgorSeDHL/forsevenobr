@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FoodDelivery"
         mc:Ignorable="d"
         Title="UserWindow" Height="800" Width="800">
-    <Grid Margin="10">
+    <Grid Margin="10" Background="#0a1128">
         <!-- Определяем строки и колонки для адаптивности -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -28,7 +28,7 @@
             <!-- Выбор ресторана -->
             <TextBlock x:Name="HelloUserBX" Text="Выберите ресторан" FontSize="16" Margin="0,0,0,10"/>
             <TextBlock Text="Выберите ресторан" FontSize="16" Margin="0,0,0,10"/>
-            <ComboBox x:Name="RestaurantComboBox" Height="30" VerticalAlignment="Top" SelectionChanged="RestaurantComboBox_SelectionChanged" HorizontalAlignment="Stretch"/>
+            <ComboBox Background="#0a1128" x:Name="RestaurantComboBox" Height="30" VerticalAlignment="Top" SelectionChanged="RestaurantComboBox_SelectionChanged" HorizontalAlignment="Stretch"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0">
