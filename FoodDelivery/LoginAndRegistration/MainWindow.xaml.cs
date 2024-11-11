@@ -2,7 +2,8 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Security.Cryptography;
+using System;
 namespace FoodDelivery
 {
     /// <summary>
@@ -23,6 +24,18 @@ namespace FoodDelivery
             InitializeComponent();
 
         }
+        public static string HashPassword(string password)
+        {
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+            byte[] hash = pbkdf2.GetBytes(20);
+            byte[] hashBytes = new byte[36];
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+            return Convert.ToBase64String(hashBytes);
+        }
+
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
@@ -31,17 +44,14 @@ namespace FoodDelivery
             string phone = PhoneTextBox.Text;
             string addres = AddresTextBox.Text;
 
-            // Логика добавления пользователя в базу данных
-
-
-
             if (VaildationData(username, password, email, phone, addres))
             {
-                users.InsertQuery(username, password, email, phone, addres, 2);
-
+                string hashedPassword = HashPassword(password); // Хэширование пароля
+                users.InsertQuery(username, hashedPassword, email, phone, addres, 2);
+                MessageBox.Show("Пользователь зарегистрирован успешно.");
             }
-
         }
+
         public static bool VaildationData(string username, string password, string email, string phone, string addres)
         {
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(addres))

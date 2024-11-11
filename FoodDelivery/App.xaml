@@ -17,25 +17,9 @@
             <Setter Property="BorderBrush" Value="#001f54"/>
 
         </Style>
+
         
-        <Style TargetType="ComboBoxItem">
-            <Setter Property="Background" Value="#001f54"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Style.Triggers>
-                <!-- Цвет выделения для выбранного элемента -->
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#001f54"/>
-                    <Setter Property="Foreground" Value="White"/>
-                </Trigger>
-                <!-- Цвет при наведении курсора на элемент -->
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="Transparent"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Arial" />
             <Setter Property="Background" Value="#034078"/>
@@ -81,6 +65,106 @@
             <Setter Property="Foreground" Value="WhiteSmoke"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
-        
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#001f54"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton"
+                                  Background="#001f54" 
+                                Foreground="White"
+                                  BorderBrush="Gray"
+                                  BorderThickness="1"
+                                  IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                  ClickMode="Press">
+                                <ContentPresenter Content="{TemplateBinding SelectionBoxItem}" 
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left" />
+                            </ToggleButton>
+                            <Popup Name="Popup"
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder"
+                                    Background="Black"
+                                    BorderBrush="Gray"
+                                    BorderThickness="1" />
+                                    <ScrollViewer Margin="4,6,4,6"
+                                          SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                            KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="#001f54"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer Focusable="false">
+                                <ItemsPresenter />
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Gray"
+                        BorderThickness="0.5">
+                            <ContentPresenter HorizontalAlignment="Left" 
+                                      VerticalAlignment="Center"
+                                      Margin="4"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#0467a0"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#034078"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Application.Resources>
 </Application>

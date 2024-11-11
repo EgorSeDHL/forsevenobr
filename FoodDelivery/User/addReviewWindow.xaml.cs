@@ -29,22 +29,29 @@ namespace FoodDelivery.User
 
         private void UpdateStarAppearance()
         {
-            // Обновляем цвет каждой звезды в зависимости от текущего рейтинга
-            foreach (Button starButton in RatingPanel.Children)
+            // Получаем кнопки из RatingPanel и обновляем их цвет в зависимости от текущего рейтинга
+            foreach (var child in RatingPanel.Children)
             {
-                int starValue = int.Parse(starButton.Tag.ToString());
-                if (starValue <= rating)
+                if (child is Button starButton)
                 {
-                    // Выбранные звезды — желтый цвет
-                    starButton.Foreground = new SolidColorBrush(Colors.Gold);
-                }
-                else
-                {
-                    // Не выбранные звезды — серый цвет
-                    starButton.Foreground = new SolidColorBrush(Colors.Gray);
+                    int starValue = int.Parse(starButton.Tag.ToString());
+                    if (starValue <= rating)
+                    {
+                        // Выбранные звезды — золотой цвет
+                        starButton.Content = "★";
+                        starButton.Foreground = new SolidColorBrush(Colors.Gold);
+                    }
+                    else
+                    {
+                        // Не выбранные звезды — серый цвет
+                        starButton.Content = "☆";
+                        starButton.Foreground = new SolidColorBrush(Colors.Gray);
+                    }
                 }
             }
         }
+
+
         public addReviewWindow(int restaurantID, int userID)
         {
             restaurant_id = restaurantID;
@@ -55,6 +62,15 @@ namespace FoodDelivery.User
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             reviewsTableAdapter.InsertQuery(restaurant_id, user_id, rating, ReviewTB.Text, DateTime.Now);
+            UserWindow userWindow = new UserWindow(Convert.ToInt32(user_id));
+            userWindow.Show();
+            this.Close();
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UserWindow userWindow = new UserWindow(Convert.ToInt32(user_id));
+            userWindow.Show();
             this.Close();
         }
     }

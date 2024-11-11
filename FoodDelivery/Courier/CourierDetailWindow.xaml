@@ -17,6 +17,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Button Content="Назад" Grid.Row="0" Grid.Column="0" VerticalAlignment ="Top" HorizontalAlignment="Left" Margin="10" x:Name="BackBtn" Click="backBtn_Click"/>
+
         <TextBlock Text="Страница заказа" FontSize="34" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"></TextBlock>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
             <TextBlock x:Name="userTB" Text="user" FontSize="34"></TextBlock>

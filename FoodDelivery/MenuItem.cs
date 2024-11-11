@@ -9,6 +9,8 @@
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
         public int Weight { get; set; }
+        public string NameAndPrice => $"{Name} - {Price:C}";
+
         public MenuItem(int itemId, int restaurantId, string name, string description, decimal price, bool isAvailable, int weight)
         {
             ItemId = itemId;

@@ -48,7 +48,19 @@ namespace FoodDelivery.Admin
 
         private void ChangeBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
             users.UpdateQuery(courierNameTB.Text, password, courierEmailTB.Text, courierPhoneTB.Text, courierAddressTB.Text, RoleCB.SelectedIndex+1, userID);
+                MessageBox.Show("Успешное изменение");
+                this.Close();
+                AdminWindow adminWindow = new AdminWindow();
+                adminWindow.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибкa " + e.ToString());
+            }
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -59,6 +71,13 @@ namespace FoodDelivery.Admin
         private void RoleCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Show();
+            this.Close();
         }
     }
 }

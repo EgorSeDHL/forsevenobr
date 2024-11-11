@@ -54,7 +54,6 @@ namespace FoodDelivery
 
             foreach (var item in restaurantsObject)
             {
-                restaurant_ID = item.restaurant_id;
                 restaurantsList.Add(new Restaurant { Id = item.restaurant_id, Name = item.name });
             }
             RestaurantComboBox.ItemsSource = restaurantsList;
@@ -66,6 +65,7 @@ namespace FoodDelivery
 
             // Получаем выбранный ресторан
             Restaurant selectedRestaurant = RestaurantComboBox.SelectedItem as Restaurant;
+            restaurant_ID = selectedRestaurant.Id;
             currentSelectedRestaurantId = selectedRestaurant.Id;
             if (selectedRestaurant != null)
             {
@@ -94,7 +94,7 @@ namespace FoodDelivery
                     }
                 }
                 ProductListBox.ItemsSource = menuRestaurantsList;
-                ProductListBox.DisplayMemberPath = "Name";
+                ProductListBox.DisplayMemberPath = "NameAndPrice";
 
             }
         }
@@ -205,7 +205,8 @@ namespace FoodDelivery
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             addReviewWindow addReviewWindow = new addReviewWindow(restaurant_ID, user_ID);
-            addReviewWindow.ShowDialog();
+            addReviewWindow.Show();
+            this.Close();
         }
     }
 }

@@ -75,6 +75,7 @@
       <DependentUpon>CourierWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
+    <Compile Include="PasswordHelper.cs" />
     <Compile Include="User.cs" />
     <Compile Include="User\addReviewWindow.xaml.cs">
       <DependentUpon>addReviewWindow.xaml</DependentUpon>

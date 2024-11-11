@@ -5,12 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodDelivery"
         mc:Ignorable="d"
-        Title="Авторизация" Height="200" Width="300">
+        Title="Авторизация" Height="290" Width="300">
     <StackPanel Background="#0a1128">
-        <TextBlock Text="Имя пользователя"  HorizontalAlignment="Center"/>
-        <TextBox Name="UsernameTextBox" />
-        <TextBlock Text="Пароль"  HorizontalAlignment="Center"/>
-        <PasswordBox Name="PasswordBox" />
-        <Button x:Name="EnterBtn" Content="Войти" Click="EnterBtn_Click" Margin="0,5" />
+        <TextBlock Text="Имя пользователя" Margin="10"  HorizontalAlignment="Center"/>
+        <TextBox Name="UsernameTextBox" Margin="10,0"/>
+        <TextBlock Text="Пароль" Margin="10" HorizontalAlignment="Center"/>
+        <PasswordBox Name="PasswordBox" Margin="10,0" />
+        <Button x:Name="EnterBtn" 
+                Content="Войти" 
+                Click="EnterBtn_Click" 
+                Margin="10,10,10,5" />
+        <Button x:Name="BackBtn" 
+                Content="Назад" 
+                Margin="10,5" Click="BackBtn_Click" />
     </StackPanel>
 </Window>

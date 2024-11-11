@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodDelivery.User"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="addReviewWindow" Height="450" Width="800">
     <Grid Background="#0a1128">
         <Grid.RowDefinitions>
@@ -15,16 +16,18 @@
 
             
         </Grid.RowDefinitions>
+        <Button Content="Назад" Grid.Row="0" Grid.Column="0" VerticalAlignment ="Top" HorizontalAlignment="Left" Margin="10" x:Name="BackBtn" Click="BackBtn_Click"/>
+
         <TextBlock Text="Напишите отзыв  о ресторане " Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"></TextBlock>
         <TextBox x:Name="ReviewTB" Grid.Row="1" FontSize="24"></TextBox>
-        <TextBlock Text="Gjcnf " Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"></TextBlock>
+        <TextBlock Text="Оценка " Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"></TextBlock>
 
         <UniformGrid Rows="1" Columns="5" Margin="10" Grid.Row="2" HorizontalAlignment="Stretch" Name="RatingPanel">
-            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="1" />
-            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="2" />
-            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="3" />
-            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="4" />
-            <Button Content="★" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="5" />
+            <Button Content="☆" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="1" />
+            <Button Content="☆" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="2" />
+            <Button Content="☆" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="3" />
+            <Button Content="☆" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="4" />
+            <Button Content="☆" Background="Transparent" BorderBrush="Transparent" FontSize="45" Click="Star_Click" Tag="5" />
         </UniformGrid>
         <Button Content="Написать отзыв" Grid.Row="3" FontSize="24" Margin="10" Click="Button_Click"></Button>
     </Grid>

@@ -1,6 +1,8 @@
 ﻿using FoodDelivery.Admin;
 using FoodDelivery.Courier;
 using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
+using System.Security.Cryptography;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,24 +25,21 @@ namespace FoodDelivery
             string password = PasswordBox.Password;
 
             var userTable = users.GetData();
-
             bool userFound = false;
-            /*   UserWindow userWindow = new UserWindow(1);
-               userWindow.Show();*/
+
             foreach (var row in userTable)
             {
-
                 string storedUsername = row.username;
-                string storedPassword = row.password;
+                string storedPasswordHash = row.password;
 
                 if (storedUsername == username)
                 {
                     userFound = true;
 
-                    if (storedPassword == password)
+                    if (VerifyPassword(password, storedPasswordHash))
                     {
-
                         CheckRole(row, row.user_id);
+                        return;
                     }
                     else
                     {
@@ -52,10 +51,27 @@ namespace FoodDelivery
 
             if (!userFound)
             {
-                MessageBox.Show("НЕ НАШЕЕЕЛ ЮЗЕРА!!!");
+                MessageBox.Show("НЕ НАШЕЛ ЮЗЕРА!!!");
             }
-
         }
+
+        public static bool VerifyPassword(string enteredPassword, string storedHash)
+        {
+            byte[] hashBytes = Convert.FromBase64String(storedHash);
+            byte[] salt = new byte[16];
+            Array.Copy(hashBytes, 0, salt, 0, 16);
+
+            var pbkdf2 = new Rfc2898DeriveBytes(enteredPassword, salt, 10000);
+            byte[] enteredHash = pbkdf2.GetBytes(20);
+
+            for (int i = 0; i < 20; i++)
+            {
+                if (hashBytes[i + 16] != enteredHash[i])
+                    return false;
+            }
+            return true;
+        }
+
         private void CheckRole(FoodDeliveryDBDataSet.UsersRow row, int userID)
         {
             if (row.role_id == 1)
@@ -79,6 +95,13 @@ namespace FoodDelivery
                 this.Close();
             }
 
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
