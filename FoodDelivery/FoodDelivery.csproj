@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin\AddRestaurantItemsWindow.xaml.cs">
+      <DependentUpon>AddRestaurantItemsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminAddRestaurant.xaml.cs">
       <DependentUpon>AdminAddRestaurant.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
     <Compile Include="User\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Admin\AddRestaurantItemsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\AdminAddRestaurant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

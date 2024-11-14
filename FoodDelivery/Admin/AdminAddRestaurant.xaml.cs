@@ -19,20 +19,20 @@ namespace FoodDelivery.Admin
         {
             try
             {
-                    restaurantsTableAdapter.InsertQuery(restaurantNameTBX.Text, addressTBX.Text, phoneTBX.Text, 5);
-                    MessageBox.Show("Успешно");
-                    this.Close();
-
+                restaurantsTableAdapter.InsertQuery(restaurantNameTBX.Text, addressTBX.Text, phoneTBX.Text, 5);
+                AddRestaurantItemsWindow addRestaurantItemsWindow = new AddRestaurantItemsWindow();
+                addRestaurantItemsWindow.Show();
+                this.Close();
             }
             catch
             {
-                MessageBox.Show("Ошибка: " + e.ToString());
+                MessageBox.Show("Ошибка: " + e);
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }

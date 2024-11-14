@@ -26,6 +26,6 @@
             <TextBlock Text="Адрес ресторана" HorizontalAlignment="Center"/>
             <TextBox x:Name="addressTBX" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2"/>
         </StackPanel>
-        <Button Grid.Row="3" Margin="10,10,10,10" Content="Добавить ресторан" Click="Button_Click" Grid.Column="0"/>
+        <Button Grid.Row="3" Margin="10,10,10,10" Content="Добавить продукты" Click="Button_Click" Grid.Column="0"/>
     </Grid>
 </Window>

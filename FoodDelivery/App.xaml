@@ -164,6 +164,89 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="DataGrid">
+            <!-- Общие настройки для DataGrid -->
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+            <Setter Property="Background" Value="#001f54" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalGridLinesBrush" Value="Gray" />
+            <Setter Property="VerticalGridLinesBrush" Value="Gray" />
+            <Setter Property="RowBackground" Value="#002a6d" />
+            <Setter Property="AlternatingRowBackground" Value="#003e92" />
+
+            <!-- Стилизация заголовков столбцов -->
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontFamily" Value="Arial" />
+                        <Setter Property="FontSize" Value="18" />
+                        <Setter Property="Foreground" Value="WhiteSmoke" />
+                        <Setter Property="Background" Value="#034078" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        <Setter Property="Padding" Value="5" />
+
+                        <!-- Эффекты при наведении -->
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0467a0" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Стилизация строк DataGrid -->
+            <Setter Property="CellStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Foreground" Value="WhiteSmoke" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="BorderThickness" Value="0,0,1,1" />
+
+                        <!-- Эффект при наведении на ячейку -->
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#034078" />
+                            </Trigger>
+                            <!-- Эффект при выделении строки -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#0467a0" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Стилизация для строк DataGrid -->
+            <Setter Property="RowStyle">
+                <Setter.Value>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#002a6d" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="BorderThickness" Value="0,1,0,1" />
+
+                        <!-- Эффекты при наведении и выделении строки -->
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#034078" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#0467a0" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
     </Application.Resources>
