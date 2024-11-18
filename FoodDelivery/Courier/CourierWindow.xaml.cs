@@ -62,7 +62,15 @@ namespace FoodDelivery.Courier
             ItemsListBox.DisplayMemberPath = "DisplayText";
         }
 
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
         private void ItemsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Получаем ID заказа из выбранного элемента

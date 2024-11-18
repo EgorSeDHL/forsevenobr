@@ -45,7 +45,15 @@ namespace FoodDelivery.Admin
                 }
             }
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
         private void ChangeBtn_Click(object sender, RoutedEventArgs e)
         {
             try

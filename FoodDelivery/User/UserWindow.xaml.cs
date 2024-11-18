@@ -22,6 +22,7 @@ namespace FoodDelivery
         Order_ItemsTableAdapter order_items = new Order_ItemsTableAdapter();
         RestaurantsTableAdapter restaurants = new RestaurantsTableAdapter();
         ReviewsTableAdapter reviews = new ReviewsTableAdapter();
+        LoggingTableAdapter logging = new LoggingTableAdapter();
         public int user_ID;
         public int restaurant_ID;
         public decimal totalPrice;
@@ -40,6 +41,8 @@ namespace FoodDelivery
             var restaurantsObject = restaurants.GetData();
             List<Restaurant> restaurantsList = new List<Restaurant>();
             user_ID = userId;
+
+            // Получаем имя пользователя для приветствия
             var UsersGetData = users.GetData();
             string username = "NoName";
             foreach (var user in UsersGetData)
@@ -48,9 +51,11 @@ namespace FoodDelivery
                 {
                     username = user.username;
                 }
-
             }
             HelloUserBX.Text = "Привет " + username + "!";
+
+            // Добавляем фиктивный элемент "Все рестораны"
+            restaurantsList.Add(new Restaurant { Id = -1, Name = "...Все рестораны..." });
 
             foreach (var item in restaurantsObject)
             {
@@ -58,46 +63,107 @@ namespace FoodDelivery
             }
             RestaurantComboBox.ItemsSource = restaurantsList;
             RestaurantComboBox.DisplayMemberPath = "Name";
+            RestaurantComboBox.SelectedIndex = 0; // Устанавливаем по умолчанию "Все рестораны"
         }
+
 
         private void RestaurantComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            menuRestaurantsList.Clear();
 
             // Получаем выбранный ресторан
             Restaurant selectedRestaurant = RestaurantComboBox.SelectedItem as Restaurant;
-            restaurant_ID = selectedRestaurant.Id;
-            currentSelectedRestaurantId = selectedRestaurant.Id;
             if (selectedRestaurant != null)
             {
-                selectedRestaurantId = selectedRestaurant.Id;
-
-                // Теперь можно использовать selectedRestaurantId для фильтрации данных
-
-                var review = reviews.GetData();
-                List<string> restaurantReviews = new List<string>();
-                foreach (var item in review)
+                if (selectedRestaurant.Id == -1)
                 {
-                    if (item.restaurant_id == selectedRestaurantId)
-                    {
-                        restaurantReviews.Add(item.comment);
-                    }
+                    // Если выбран пункт "Все рестораны", сбрасываем выбор ресторана
+                    selectedRestaurantId = -1;
+                    restaurant_ID = -1;
+                    currentSelectedRestaurantId = -1;
                 }
-                additionalInformationTBlock.ItemsSource = restaurantReviews;
-
-
-                var menuObject = menu.GetData();
-                foreach (var item in menuObject)
+                else
                 {
-                    if (item.restaurant_id == selectedRestaurantId)
-                    {
-                        menuRestaurantsList.Add(new MenuItem(item.item_id, item.restaurant_id, item.name, item.description, item.price, item.is_available, item.weight));
-                    }
-                }
-                ProductListBox.ItemsSource = menuRestaurantsList;
-                ProductListBox.DisplayMemberPath = "NameAndPrice";
+                    selectedRestaurantId = selectedRestaurant.Id;
+                    restaurant_ID = selectedRestaurant.Id;
+                    currentSelectedRestaurantId = selectedRestaurant.Id;
 
+                    // Заполняем отзывы для выбранного ресторана
+                    var review = reviews.GetData();
+                    var allusers = users.GetData();
+                    List<string> restaurantReviews = new List<string>();
+                    foreach (var item in review)
+                    {
+                        if (item.restaurant_id == selectedRestaurantId)
+                        {
+                            // Найти пользователя по item.user_id
+                            var user = allusers.FirstOrDefault(u => u.user_id == item.user_id);
+                            string username = user != null ? user.username : "Неизвестный пользователь";
+
+                            restaurantReviews.Add($"👤 {username}: {item.comment}. Оценка {item.rating} ");
+                        }
+                    }
+                    additionalInformationTBlock.ItemsSource = restaurantReviews;
+                }
+
+                // Обновляем список продуктов на основе выбранного ресторана
+                UpdateProductList();
             }
         }
+
+
+        private void UpdateProductList()
+        {
+            menuRestaurantsList.Clear();
+
+            // Получаем все данные из меню
+            var allProducts = menu.GetData();
+
+            // Проверяем, выбран ли ресторан
+            bool isRestaurantSelected = RestaurantComboBox.SelectedItem != null;
+
+            // Проверяем, если поле поиска пустое
+            if (string.IsNullOrWhiteSpace(searchTBX.Text))
+            {
+                // Если ресторан выбран, показываем только продукты этого ресторана
+                if (isRestaurantSelected)
+                {
+                    foreach (var product in allProducts)
+                    {
+                        if (product.restaurant_id == selectedRestaurantId) // фильтруем по выбранному ресторану
+                        {
+                            menuRestaurantsList.Add(new MenuItem(product.item_id, product.restaurant_id, product.name, product.description, product.price, product.is_available, product.weight));
+                        }
+                    }
+                }
+                else
+                {
+                    // Если ресторан не выбран, добавляем все продукты
+                    foreach (var product in allProducts)
+                    {
+                        menuRestaurantsList.Add(new MenuItem(product.item_id, product.restaurant_id, product.name, product.description, product.price, product.is_available, product.weight));
+                    }
+                }
+            }
+            else
+            {
+                // Если в поле поиска есть текст
+                foreach (var product in allProducts)
+                {
+                    // Фильтруем продукты по введенному тексту и выбранному ресторану (если он выбран)
+                    if (product.name.ToLower().Contains(searchTBX.Text.ToLower()) &&
+                       (!isRestaurantSelected || product.restaurant_id == selectedRestaurantId))
+                    {
+                        menuRestaurantsList.Add(new MenuItem(product.item_id, product.restaurant_id, product.name, product.description, product.price, product.is_available, product.weight));
+                    }
+                }
+            }
+
+            // Обновляем источник данных для ProductListBox
+            ProductListBox.ItemsSource = null;
+            ProductListBox.ItemsSource = menuRestaurantsList;
+        }
+
 
         private void SubmitOrder_Click(object sender, RoutedEventArgs e)
         {
@@ -106,6 +172,7 @@ namespace FoodDelivery
             {
                 // Вставляем заказ и проверяем, что запрос выполнен успешно
                 orders.InsertQuery(user_ID, null, DateTime.Now, totalPrice, "Pending", AddressTextBox.Text);
+                logging.InsertQuery($"Пользователь с id {user_ID} создал заказ с общей стомиостью {totalPrice}, на адрес {AddressTextBox.Text}");
                 var ordersGetData = orders.GetData();
                 var lastOrderId = ordersGetData.Last().order_id;
                 payments.Insert(lastOrderId, DateTime.Now, totalPrice, paymentMethod);
@@ -169,14 +236,13 @@ namespace FoodDelivery
             // Обновляем источники данных для ListBox
             ProductListBox.ItemsSource = null;
             ProductListBox.ItemsSource = menuRestaurantsList; // обновляем список продуктов
-            ProductListBox.DisplayMemberPath = "Name";
 
             BasketListBox.ItemsSource = null;
             BasketListBox.ItemsSource = basketItemsList; // обновляем список корзины
             BasketListBox.DisplayMemberPath = "Name";
 
             // Обновляем отображение общей суммы
-            totalSummTB.Text = totalPrice.ToString() + " Рублей";
+            totalSummTB.Text = totalPrice.ToString() + " $";
 
             // Отображаем список товаров в корзине для отладки
             string ids = string.Join(", ", orderedItems.Select(o => $"ItemId: {o.ItemId}, Quantity: {o.Quantity}"));
@@ -207,6 +273,76 @@ namespace FoodDelivery
             addReviewWindow addReviewWindow = new addReviewWindow(restaurant_ID, user_ID);
             addReviewWindow.Show();
             this.Close();
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void searchTBX_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Очищаем список продуктов перед новым поиском
+            menuRestaurantsList.Clear();
+
+            // Получаем все данные из меню
+            var allProducts = menu.GetData();
+
+            // Проверяем, если поле поиска пустое
+            if (string.IsNullOrWhiteSpace(searchTBX.Text))
+            {
+                // Если поле поиска пустое, показываем все продукты, если выбран "Все рестораны"
+                // или фильтруем по ресторану, если выбран конкретный ресторан
+                foreach (var product in allProducts)
+                {
+                    if (selectedRestaurantId == -1 || product.restaurant_id == selectedRestaurantId)
+                    {
+                        menuRestaurantsList.Add(new MenuItem(
+                            product.item_id,
+                            product.restaurant_id,
+                            product.name,
+                            product.description,
+                            product.price,
+                            product.is_available,
+                            product.weight
+                        ));
+                    }
+                }
+            }
+            else
+            {
+                // Если в поле поиска есть текст, фильтруем продукты по тексту поиска и выбранному ресторану
+                foreach (var product in allProducts)
+                {
+                    if (product.name.ToLower().Contains(searchTBX.Text.ToLower()) &&
+                        (selectedRestaurantId == -1 || product.restaurant_id == selectedRestaurantId))
+                    {
+                        menuRestaurantsList.Add(new MenuItem(
+                            product.item_id,
+                            product.restaurant_id,
+                            product.name,
+                            product.description,
+                            product.price,
+                            product.is_available,
+                            product.weight
+                        ));
+                    }
+                }
+            }
+
+            // Обновляем источник данных для ProductListBox
+            ProductListBox.ItemsSource = null;
+            ProductListBox.ItemsSource = menuRestaurantsList;
+            ProductListBox.DisplayMemberPath = "Name";
+        }
+
+        private void ProductListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

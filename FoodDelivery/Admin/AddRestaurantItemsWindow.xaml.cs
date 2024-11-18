@@ -27,7 +27,15 @@ namespace FoodDelivery.Admin
 
             UpdateMenuItems();
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
         private void addItem_Click(object sender, RoutedEventArgs e)
         {
             // Добавляем новый элемент меню

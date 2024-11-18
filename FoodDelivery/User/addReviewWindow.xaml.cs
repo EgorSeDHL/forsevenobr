@@ -12,6 +12,7 @@ namespace FoodDelivery.User
     public partial class addReviewWindow : Window
     {
         ReviewsTableAdapter reviewsTableAdapter = new ReviewsTableAdapter();
+        LoggingTableAdapter logging = new LoggingTableAdapter();
         private int? restaurant_id;
         private int? user_id;
         private int rating;
@@ -62,6 +63,8 @@ namespace FoodDelivery.User
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             reviewsTableAdapter.InsertQuery(restaurant_id, user_id, rating, ReviewTB.Text, DateTime.Now);
+            logging.InsertQuery($"Пользователь с id {user_id} отзыв {ReviewTB.Text} для ресторана с id {restaurant_id}, c оценкой {rating}");
+
             UserWindow userWindow = new UserWindow(Convert.ToInt32(user_id));
             userWindow.Show();
             this.Close();
@@ -72,6 +75,15 @@ namespace FoodDelivery.User
             UserWindow userWindow = new UserWindow(Convert.ToInt32(user_id));
             userWindow.Show();
             this.Close();
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }
