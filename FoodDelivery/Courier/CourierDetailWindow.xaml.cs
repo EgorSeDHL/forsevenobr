@@ -1,17 +1,7 @@
 ﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FoodDelivery.Courier
 {
@@ -40,16 +30,16 @@ namespace FoodDelivery.Courier
             var allItems = orderItems.GetData();
             var allProducts = menuItems.GetData();
             foreach (var item in allOrders)
-                {                   
-                    if (item.order_id == orderID)
+            {
+                if (item.order_id == orderID)
                 {
-                    foreach (var orderitems in allItems) 
-                    { 
+                    foreach (var orderitems in allItems)
+                    {
                         if (orderitems.order_id == orderID)
                         {
-                            foreach(var products in allProducts)
+                            foreach (var products in allProducts)
                             {
-                                if(products.item_id == orderitems.item_id)
+                                if (products.item_id == orderitems.item_id)
                                 {
                                     ListItems.Add(new MenuItem(products.item_id, products.restaurant_id, products.name, products.description, products.price, products.is_available, products.weight));
                                 }
@@ -57,16 +47,16 @@ namespace FoodDelivery.Courier
                         }
                     }
                     address = item.order_address;
-                    foreach(var user in allUsers)
+                    foreach (var user in allUsers)
                     {
-                        if(item.user_id == user.user_id)
+                        if (item.user_id == user.user_id)
                         {
                             username = user.username;
                         }
                     }
                 }
             }
-           
+
             userTB.Text = $"Имя заказчика: {username}";
             addressTB.Text = $"Адрес заказчика: {address}";
             productsLB.ItemsSource = ListItems;
@@ -83,7 +73,7 @@ namespace FoodDelivery.Courier
         private void takeOrderBtn_Click(object sender, RoutedEventArgs e)
         {
             orders.UpdateQuery(courierID, "Pending", OrderID);
-            CourierPendingOrderWindow courierPendingOrderWindow = new CourierPendingOrderWindow(OrderID,address, courierID);
+            CourierPendingOrderWindow courierPendingOrderWindow = new CourierPendingOrderWindow(OrderID, address, courierID);
             courierPendingOrderWindow.Show();
             this.Close();
         }

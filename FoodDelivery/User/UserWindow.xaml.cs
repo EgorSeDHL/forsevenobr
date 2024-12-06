@@ -100,7 +100,7 @@ namespace FoodDelivery
                             var user = allusers.FirstOrDefault(u => u.user_id == item.user_id);
                             string username = user != null ? user.username : "Неизвестный пользователь";
 
-                            restaurantReviews.Add($"👤 {username}: {item.comment}. Оценка {item.rating} ");
+                            restaurantReviews.Add($"👤{username}: {item.comment}. Оценка {item.rating} ");
                         }
                     }
                     additionalInformationTBlock.ItemsSource = restaurantReviews;
@@ -337,7 +337,6 @@ namespace FoodDelivery
             // Обновляем источник данных для ProductListBox
             ProductListBox.ItemsSource = null;
             ProductListBox.ItemsSource = menuRestaurantsList;
-            ProductListBox.DisplayMemberPath = "Name";
         }
 
         private void ProductListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

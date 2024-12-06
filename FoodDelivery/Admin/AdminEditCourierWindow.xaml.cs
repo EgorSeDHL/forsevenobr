@@ -1,17 +1,7 @@
 ﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FoodDelivery.Admin
 {
@@ -32,7 +22,7 @@ namespace FoodDelivery.Admin
             RoleCB.Items.Add("Пользователь");
             RoleCB.Items.Add("Курьер");
             MessageBox.Show(id.ToString());
-            foreach(var user in allUsers)
+            foreach (var user in allUsers)
             {
                 if (user.user_id == id)
                 {
@@ -40,8 +30,8 @@ namespace FoodDelivery.Admin
                     courierEmailTB.Text = user.email;
                     courierPhoneTB.Text = user.phone.ToString();
                     courierAddressTB.Text = user.address;
-                    RoleCB.SelectedIndex = user.role_id-1;
-                    password= user.password;
+                    RoleCB.SelectedIndex = user.role_id - 1;
+                    password = user.password;
                 }
             }
         }
@@ -59,7 +49,7 @@ namespace FoodDelivery.Admin
             try
             {
 
-            users.UpdateQuery(courierNameTB.Text, password, courierEmailTB.Text, courierPhoneTB.Text, courierAddressTB.Text, RoleCB.SelectedIndex+1, userID);
+                users.UpdateQuery(courierNameTB.Text, password, courierEmailTB.Text, courierPhoneTB.Text, courierAddressTB.Text, RoleCB.SelectedIndex + 1, userID);
                 MessageBox.Show("Успешное изменение");
                 this.Close();
                 AdminWindow adminWindow = new AdminWindow();

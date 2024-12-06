@@ -1,9 +1,9 @@
 ﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
+using System;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Security.Cryptography;
-using System;
 namespace FoodDelivery
 {
     /// <summary>

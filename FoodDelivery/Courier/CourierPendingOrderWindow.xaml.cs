@@ -1,17 +1,6 @@
 ﻿using FoodDelivery.FoodDeliveryDBDataSetTableAdapters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FoodDelivery.Courier
 {
@@ -41,7 +30,7 @@ namespace FoodDelivery.Courier
         }
 
         private void GiveOrderBtn_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             orders.UpdateQuery(courierID, "Delivered", orderID);
             CourierWindow courierWindow = new CourierWindow(courierID);
             courierWindow.Show();
