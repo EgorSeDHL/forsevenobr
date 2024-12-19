@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Globalization;
 
+
 namespace FoodDelivery.User
 {
     /// <summary>
@@ -18,20 +19,14 @@ namespace FoodDelivery.User
         private int? user_id;
         private int rating;
 
-private void Star_Click(object sender, RoutedEventArgs e)
-{
-    // Определяем рейтинг на основе кнопки, на которую нажали
-    Button clickedButton = sender as Button;
+        private void Star_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
 
-    // Преобразуем значение Tag в число с использованием CultureInfo.InvariantCulture
-    rating = int.Parse(clickedButton.Tag.ToString(), CultureInfo.InvariantCulture);
+            rating = int.Parse(clickedButton.Tag.ToString(), CultureInfo.InvariantCulture);
 
-    // Обновляем внешний вид звездочек
-    UpdateStarAppearance();
-
-    // Отображаем текущий рейтинг
-}
-
+            UpdateStarAppearance();
+        }
         private void UpdateStarAppearance()
         {
             // Получаем кнопки из RatingPanel и обновляем их цвет в зависимости от текущего рейтинга

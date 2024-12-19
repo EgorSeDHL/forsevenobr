@@ -9,23 +9,29 @@ on:
       - forOKFKS
 
 jobs:
-  build:
+  CheckErrors:
     runs-on: windows-latest
 
     steps:
-    - name: Proverka repository
+    - name: Download Code
       uses: actions/checkout@v2
 
-    - name: Ustanovka Net
+    - name: Download .Net
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Dogruzka Nuget
+    - name: Restore Nuget
       run: nuget restore FoodDelivery.sln
 
-    - name: Build
+    - name: Build project
       run: |
         msbuild FoodDelivery.sln /p:Configuration=Release
 
-    - name: Zapusk Analyz
+    - name: Run Code Analysis
       run: |
         msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true
+
+    - name: Run Linter (Roslyn Analyzers)
+      run: |
+        msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true /p:CodeAnalysisRuleSet=CodeAnalysis.ruleset
+        # или если используется StyleCop:
+        # dotnet stylecop analyze
