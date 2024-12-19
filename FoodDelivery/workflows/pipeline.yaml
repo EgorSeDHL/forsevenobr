@@ -1,3 +1,13 @@
+name: Build and Check Syntax
+
+on:
+  push:
+    branches:
+      - forOKFKS2
+  pull_request:
+    branches:
+      - forOKFKS2
+
 jobs:
   build:
     runs-on: windows-latest
