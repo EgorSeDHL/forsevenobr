@@ -20,12 +20,12 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Dogruzka Nuget
-      run: nuget restore TaskManagement.sln
+      run: nuget restore FoodDelivery.sln
 
     - name: Build
       run: |
-        msbuild TaskManagement.sln /p:Configuration=Release
+        msbuild FoodDelivery.sln /p:Configuration=Release
 
     - name: Zapusk Analyz
       run: |
-        msbuild TaskManagement.sln /p:Configuration=Release /p:RunCodeAnalysis=true
+        msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true
