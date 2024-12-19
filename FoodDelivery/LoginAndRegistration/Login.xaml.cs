@@ -43,7 +43,7 @@ namespace FoodDelivery
                     }
                     else
                     {
-                        MessageBox.Show("НЕ ВЕРНЫЙ ПАРОЛЬ!!!");
+                        MessageBox.Show("Не верный пароль!!!");
                         return;
                     }
                 }
@@ -51,7 +51,7 @@ namespace FoodDelivery
 
             if (!userFound)
             {
-                MessageBox.Show("НЕ НАШЕЛ ЮЗЕРА!!!");
+                MessageBox.Show("Не верное имя пользователя!!!");
             }
         }
 
@@ -76,7 +76,6 @@ namespace FoodDelivery
         {
             if (row.role_id == 1)
             {
-                MessageBox.Show("Admin");
                 AdminWindow admin = new AdminWindow();
                 admin.Show();
 
@@ -89,7 +88,6 @@ namespace FoodDelivery
             }
             else
             {
-                MessageBox.Show("Курьер");
                 CourierWindow courierWindow = new CourierWindow(userID);
                 courierWindow.Show();
                 this.Close();

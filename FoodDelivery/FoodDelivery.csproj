@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="OxyPlot, Version=2.2.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
       <HintPath>..\packages\OxyPlot.Core.2.2.0\lib\net462\OxyPlot.dll</HintPath>
     </Reference>

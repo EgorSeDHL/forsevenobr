@@ -1,0 +1,33 @@
+name: Build and Check Syntax
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0'  # Укажите вашу версию .NET
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --configuration Release
+
+    - name: Run static code analysis (optional)
+      run: |
+        dotnet tool install --global dotnet-format
+        dotnet format --check  # Проверяет стиль кода

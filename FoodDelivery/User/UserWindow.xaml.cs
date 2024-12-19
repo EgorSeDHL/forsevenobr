@@ -192,11 +192,14 @@ namespace FoodDelivery
                 }
 
                 MessageBox.Show("Заказ успешно добавлен!");
+                BasketListBox.ItemsSource = null;
+                ProductListBox.ItemsSource = null;
+                RestaurantComboBox.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
                 // Ловим исключение и выводим сообщение об ошибке
-                MessageBox.Show($"Ошибка при добавлении заказа: {ex.Message}");
+                MessageBox.Show($"Ошибка: {ex.Message}");
             }
         }
 
@@ -246,7 +249,7 @@ namespace FoodDelivery
 
             // Отображаем список товаров в корзине для отладки
             string ids = string.Join(", ", orderedItems.Select(o => $"ItemId: {o.ItemId}, Quantity: {o.Quantity}"));
-            MessageBox.Show(ids);
+            //MessageBox.Show(ids);
         }
 
 

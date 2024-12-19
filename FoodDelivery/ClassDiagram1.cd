@@ -1,2 +1,375 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FoodDelivery.Admin.AddRestaurantItemsWindow" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAACAAgQAAAAAAAAAAQASAAAAAA=</HashCode>
+      <FileName>Admin\AddRestaurantItemsWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Admin.AdminAddRestaurant" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Admin\AdminAddRestaurant.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Admin.AdminDiagramWindow" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Admin\AdminDiagramWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Admin.Sale">
+    <Position X="18.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Admin\AdminDiagramWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.Admin.AdminEditCourierWindow" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAABBIAQAAAAAECAAAAAAAAAAAAAAAAAAAQgAAAAA=</HashCode>
+      <FileName>Admin\AdminEditCourierWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Admin.AdminWindow" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAABAAAQABAAABAAEAAAEEAQIAAAAAAAMASAAAAAA=</HashCode>
+      <FileName>Admin\AdminWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Courier.CourierDetailWindow" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAARABAAAACAAAAQAQAAEBAAIAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Courier\CourierDetailWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Courier.CourierPendingOrderWindow" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAgAAAAAAAAAABAAAAAAAAEAAAAEAAAAA=</HashCode>
+      <FileName>Courier\CourierPendingOrderWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Courier.OrderDisplay">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Courier\CourierWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.Courier.CourierWindow" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAARABAAAAAAAAAAAQAAABAgAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Courier\CourierWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Login">
+    <Position X="13" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAkAAIAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoginAndRegistration\Login.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FoodDelivery.MainWindow">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YKAAAEABAAAUAAAAAAgCAAggAAAAAAAAAABAAABAAAA=</HashCode>
+      <FileName>LoginAndRegistration\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FoodDelivery.User.addReviewWindow" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABBAoAAAAAAAAACAAAAEAAQAQAAAAAAEAQAAAAAQ=</HashCode>
+      <FileName>User\addReviewWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.amountItemWibdow" BaseTypeListCollapsed="true">
+    <Position X="13" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAEACAAAAAAEAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>User\amountItemWibdow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.UserWindow" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YCBIAFABAAAQAAAgAggCAhlAAAEAQAIAABFARAAAQwA=</HashCode>
+      <FileName>User\UserWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FoodDelivery.Class1">
+    <Position X="18.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderedItem">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>CountClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSet">
+    <Position X="20" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.Order_ItemsRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.RolesRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.OrdersDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.RestaurantsRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.PaymentsRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.Menu_ItemsRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.LoggingRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.UsersDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.UsersRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.ReviewsRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.OrdersRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.PaymentsRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.LoggingRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.ReviewsRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.ReviewsDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.Order_ItemsDataTable" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FoodDeliveryDBDataSet.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.UsersRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.OrdersRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.Menu_ItemsDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.ReviewsRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.LoggingDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.Menu_ItemsRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.RestaurantsDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.RolesDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.RolesRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.Order_ItemsRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.OrdersRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.UsersRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="FoodDelivery.FoodDeliveryDBDataSet.RestaurantsRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.PaymentsRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.RestaurantsRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.Order_ItemsRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.Menu_ItemsRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.PaymentsDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.LoggingRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSet.RolesRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACEAAnAQIwDIgAJ5BkFAQAAABggOzTgAAAAoBAkABBI=</HashCode>
+      <FileName>FoodDeliveryDBDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.MenuItem">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAggAAAgAAAAAQAACAAAAAAAAAEAIAAAAA=</HashCode>
+      <FileName>MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.Order">
+    <Position X="14.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAIAAAAgAAAAAAAAAgA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.RestaurantsTableAdapter">
+    <Position X="18.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAAAAAABBA=</HashCode>
+      <FileName>FoodDeliveryDBDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.OrdersTableAdapter">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAIAAAABBA=</HashCode>
+      <FileName>FoodDeliveryDBDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.Order_ItemsTableAdapter">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAAAAAABBA=</HashCode>
+      <FileName>FoodDeliveryDBDataSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.Menu_ItemsTableAdapter">
+    <Position X="11.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.PaymentsTableAdapter">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.ReviewsTableAdapter">
+    <Position X="5.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.RolesTableAdapter">
+    <Position X="7.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.UsersTableAdapter">
+    <Position X="4" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIgAAAAAAACEICAgAAAAIAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.LoggingTableAdapter">
+    <Position X="14.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.TableAdapterManager">
+    <Position X="2.25" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Class Name="FoodDelivery.FoodDeliveryDBDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AwIAIWIAIABABEEBAAAAMAAgAAACgAIIACYAAAMkJIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.PasswordHelper">
+    <Position X="14.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PasswordHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.Restaurant">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoodDelivery.MyUser">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.ComponentModel.Component" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="22.25" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
