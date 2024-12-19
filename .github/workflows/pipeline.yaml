@@ -1,4 +1,4 @@
-name: Proverka Syntaxic
+name: FoodDelivery
 
 on:
   push:
@@ -26,12 +26,6 @@ jobs:
       run: |
         msbuild FoodDelivery.sln /p:Configuration=Release
 
-    - name: Run Code Analysis
+    - name: Code Analysys
       run: |
         msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true
-
-    - name: Run Linter (Roslyn Analyzers)
-      run: |
-        # msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true /p:CodeAnalysisRuleSet=CodeAnalysis.ruleset
-        # # или если используется StyleCop:
-        dotnet stylecop analyze
