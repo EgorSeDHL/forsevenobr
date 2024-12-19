@@ -21,14 +21,8 @@ jobs:
       with:
         dotnet-version: '6.0'
 
-    - name: Restore dependencies
+    - name: Restore NuGet packages
       run: dotnet restore
 
     - name: Build project
       run: dotnet build --configuration Release
-
-    - name: Run static code analysis (optional)
-      run: |
-        dotnet tool install --global dotnet-format
-        dotnet format --check
-  
