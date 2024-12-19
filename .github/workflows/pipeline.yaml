@@ -25,6 +25,9 @@ jobs:
 
     - name: Restore NuGet packages
       run: dotnet restore
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
 
     - name: Build project
       run: dotnet build --configuration Release
