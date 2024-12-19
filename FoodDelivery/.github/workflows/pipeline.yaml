@@ -3,10 +3,10 @@ name: .NET Framework Build and Syntax Check
 on:
   push:
     branches:
-      rm
+      - rm
 pull_request:
   branches:
-      rm
+      - rm
 
 jobs:
   build:
