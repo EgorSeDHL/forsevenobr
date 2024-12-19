@@ -3,10 +3,10 @@ name: Build and Check Syntax
 on:
   push:
     branches:
-      - forOKFKS2
+      - forOKFKS
   pull_request:
     branches:
-      - forOKFKS2
+      - forOKFKS
 
 jobs:
   build:
