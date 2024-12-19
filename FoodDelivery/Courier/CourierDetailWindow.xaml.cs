@@ -72,7 +72,9 @@ namespace FoodDelivery.Courier
 
         private void takeOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            orders.UpdateQuery(courierID, "Pending", OrderID);
+            orders.UpdateQuery(courierID, "Pending",
+             OrderID)
+             ;
             CourierPendingOrderWindow courierPendingOrderWindow = new CourierPendingOrderWindow(OrderID, address, courierID);
             courierPendingOrderWindow.Show();
             this.Close();
@@ -80,12 +82,13 @@ namespace FoodDelivery.Courier
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.  Close();
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            this.WindowState = 
+            WindowState.Minimized;
         }
     }
 }
