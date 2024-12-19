@@ -1,4 +1,4 @@
-name: .NET Framework Build and Syntax Check
+name: FoodDelivery
 
 on:
   push:
@@ -9,26 +9,23 @@ on:
       - forOKFKS
 
 jobs:
-  build:
+  CheckErrors:
     runs-on: windows-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Download Code
+      uses: actions/checkout@v2
 
-    - name: Install .NET Framework Developer Pack
-      run: choco install netfx-4.7.2-devpack -y
+    - name: Download .Net
+      uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Set up MSBuild
-      uses: microsoft/setup-msbuild@v1
+    - name: Restore Nuget
+      run: nuget restore FoodDelivery.sln
 
-    - name: Build with MSBuild
-      run: msbuild /p:Configuration=Release
+    - name: Build project
+      run: |
+        msbuild FoodDelivery.sln /p:Configuration=Release
 
-    - name: Install XAML Styler
-      run: dotnet tool install -g XamlStyler.Console
-
-    - name: Format XAML files
-      run: xstyler -d ./ 
-
-    - name: Check for changes after formatting
-      run: git diff --exit-code
+    - name: Code Analysys
+      run: |
+        msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true
