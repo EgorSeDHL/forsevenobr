@@ -16,17 +16,21 @@ namespace FoodDelivery.User
         private int? restaurant_id;
         private int? user_id;
         private int rating;
-        private void Star_Click(object sender, RoutedEventArgs e)
-        {
-            // Определяем рейтинг на основе кнопки, на которую нажали
-            Button clickedButton = sender as Button;
-            rating = int.Parse(clickedButton.Tag.ToString());
+using System.Globalization;
 
-            // Обновляем внешний вид звездочек
-            UpdateStarAppearance();
+private void Star_Click(object sender, RoutedEventArgs e)
+{
+    // Определяем рейтинг на основе кнопки, на которую нажали
+    Button clickedButton = sender as Button;
 
-            // Отображаем текущий рейтинг
-        }
+    // Преобразуем значение Tag в число с использованием CultureInfo.InvariantCulture
+    rating = int.Parse(clickedButton.Tag.ToString(), CultureInfo.InvariantCulture);
+
+    // Обновляем внешний вид звездочек
+    UpdateStarAppearance();
+
+    // Отображаем текущий рейтинг
+}
 
         private void UpdateStarAppearance()
         {
