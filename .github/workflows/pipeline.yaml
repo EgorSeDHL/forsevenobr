@@ -1,34 +1,31 @@
-name: Build and Check Syntax
+name: Proverka Syntaxic
 
 on:
   push:
     branches:
-      - forOKFKS
+      - onetest
   pull_request:
     branches:
-      - forOKFKS
+      - onetest
 
 jobs:
-  checksyle:
+  build:
     runs-on: windows-latest
+
     steps:
-    - name: Checkout code
+    - name: Proverka repository
       uses: actions/checkout@v2
 
-    - name: Set up .NET SDK
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0'
+    - name: Ustanovka Net
+      uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Restore NuGet packages
-    run: nuget restore FoodDelivery.sln
+    - name: Dogruzka Nuget
+      run: nuget restore TaskManagement.sln
 
+    - name: Build
+      run: |
+        msbuild TaskManagement.sln /p:Configuration=Release
 
-    - name: Build project
-      run: dotnet build --configuration Debug
-
-    - name: Run StyleCop Analysis
-      run: dotnet build --configuration Debug /warnaserror
-
-    - name: Check code formatting
-      run: dotnet format --check
+    - name: Zapusk Analyz
+      run: |
+        msbuild TaskManagement.sln /p:Configuration=Release /p:RunCodeAnalysis=true
