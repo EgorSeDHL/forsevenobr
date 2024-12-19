@@ -16,7 +16,6 @@ namespace FoodDelivery.User
         private int? restaurant_id;
         private int? user_id;
         private int rating;
-using System.Globalization;
 
 private void Star_Click(object sender, RoutedEventArgs e)
 {
