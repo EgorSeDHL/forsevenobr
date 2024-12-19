@@ -24,8 +24,5 @@ jobs:
     - name: Restore NuGet packages
       run: dotnet restore
 
-    - name: Install missing NuGet package
-      run: dotnet add package Microsoft.NETFramework.ReferenceAssemblies.net472
-
     - name: Build project
       run: dotnet build --configuration Release
