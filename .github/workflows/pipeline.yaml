@@ -32,6 +32,6 @@ jobs:
 
     - name: Run Linter (Roslyn Analyzers)
       run: |
-        msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true /p:CodeAnalysisRuleSet=CodeAnalysis.ruleset
-        # или если используется StyleCop:
-        # dotnet stylecop analyze
+        # msbuild FoodDelivery.sln /p:Configuration=Release /p:RunCodeAnalysis=true /p:CodeAnalysisRuleSet=CodeAnalysis.ruleset
+        # # или если используется StyleCop:
+        dotnet stylecop analyze
