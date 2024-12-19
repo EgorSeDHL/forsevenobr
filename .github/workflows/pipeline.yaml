@@ -3,10 +3,10 @@ name: Proverka Syntaxic
 on:
   push:
     branches:
-      - onetest
+      - forOKFKS
   pull_request:
     branches:
-      - onetest
+      - forOKFKS
 
 jobs:
   build:
