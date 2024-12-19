@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -30,4 +30,4 @@ jobs:
     - name: Run static code analysis (optional)
       run: |
         dotnet tool install --global dotnet-format
-        dotnet format --check  # Проверяет стиль кода
+        dotnet format --check 
