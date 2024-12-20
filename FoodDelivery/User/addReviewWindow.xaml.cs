@@ -71,8 +71,7 @@ namespace FoodDelivery.User
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            newUser_id = int.Parse(user_id);
-            UserWindow userWindow = new UserWindow(newUser_id);
+            UserWindow userWindow = new UserWindow(Convert.ToInt32(user_id));
             userWindow.Show();
             this.Close();
         }
